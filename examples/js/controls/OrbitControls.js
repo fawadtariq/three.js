@@ -804,9 +804,17 @@
 
 						} else {
 
-							if ( scope.enableRotate === false ) return;
-							handleMouseDownRotate( event );
+							if ( scope.enableRotate === false ) {
+								if(scope.clickToPan === true){
+									handleMouseDownPan( event );
+									state = STATE.PAN;
+								}
+							}
+							else{
+								handleMouseDownRotate( event );
 							state = STATE.ROTATE;
+							};
+							
 
 						}
 
@@ -821,7 +829,8 @@
 
 						} else {
 
-							if ( scope.enablePan === false ) return;
+							if ( scope.enablePan === false ) {
+							};
 							handleMouseDownPan( event );
 							state = STATE.PAN;
 
